@@ -1,7 +1,16 @@
-version: '3'
+#version: '3'
+#services:
+#  redis-server:
+#    image:
+#  node-app:
+#    image:
+#    ports:
+#
+version: "3.9"
 services:
-  redis-server:
-    image:
-  node-app:
-    image:
+  web:
+    build: .
     ports:
+      - "8000:8081"
+  redis-server:
+    image: "redis:alpine"
