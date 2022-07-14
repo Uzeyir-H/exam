@@ -6,7 +6,7 @@ pipeline {
       stages {
           stage("build image") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'password', usernameVariable: 'username')])
+                withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'password', usernameVariable: 'username')]){
                     sh "docker build -t uz31r/$JOB_NAME:$BUILD_NUMBER ."
                     sh "docker login -u $username -p $password"
                     sh "docker push uz31r/$JOB_NAME:$BUILD_NUMBER"
